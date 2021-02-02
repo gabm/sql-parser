@@ -16,6 +16,8 @@ add_library(${PROJECT_NAME} SHARED
     src/sql/statements.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC src)
+target_compile_definitions(${PROJECT_NAME} PRIVATE YY_NO_UNISTD_H)
 
 add_executable(example example/example.cpp)
 target_link_libraries(example ${PROJECT_NAME})
+
