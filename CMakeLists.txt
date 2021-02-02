@@ -17,7 +17,8 @@ add_library(${PROJECT_NAME} SHARED
 )
 target_include_directories(${PROJECT_NAME} PUBLIC src)
 
-if(MSVC)
+if(TRUE)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
     target_compile_definitions(${PROJECT_NAME} PRIVATE
 	YY_NO_UNISTD_H
 	strncasecmp=_strnicmp
