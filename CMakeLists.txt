@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.2)
 project(sqlparser)
 
+
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+
 add_library(${PROJECT_NAME} SHARED
     src/SQLParser.cpp
     src/SQLParserResult.cpp
@@ -17,8 +20,7 @@ add_library(${PROJECT_NAME} SHARED
 )
 target_include_directories(${PROJECT_NAME} PUBLIC src)
 
-if(TRUE)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+if(MSVC)
     target_compile_definitions(${PROJECT_NAME} PRIVATE
 	YY_NO_UNISTD_H
 	strncasecmp=_strnicmp
