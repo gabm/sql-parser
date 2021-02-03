@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 project(sqlparser)
 
 
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-
-add_library(${PROJECT_NAME} SHARED
+add_library(${PROJECT_NAME} STATIC
     src/SQLParser.cpp
     src/SQLParserResult.cpp
     
